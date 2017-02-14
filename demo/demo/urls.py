@@ -1,11 +1,11 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
+from demo import views as demo_views
 
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
+urlpatterns = [url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     # Password URL workarounds for Django 1.6: 
     #   http://stackoverflow.com/questions/19985103/
@@ -28,6 +28,6 @@ urlpatterns = patterns('',
                     auth_views.password_reset_confirm,
                     name='password_reset_confirm'),
     # ------------------------------------------------------
-    url(r'^$', 'demo.views.home', name='home'),
-    url(r'^profile/$', 'demo.views.profile', name='profile'),
-)
+    url(r'^$', demo_views.home, name='home'),
+    url(r'^profile/$', demo_views.profile, name='profile'),]
+

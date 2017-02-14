@@ -4,21 +4,21 @@
 {% block nav_user %}
   {% if user.is_authenticated %}
     <ul class="nav navbar-nav navbar-right">
-      <li id="nav-username"><a href="{% url 'demo.views.profile' %}">
+      <li id="nav-username"><a href="{% url 'profile' %}">
         <span class="glyphicon glyphicon-user"></span>  {{ user.get_username }} &nbsp; </a>
       </li>
       <li>
-        <a href="{% url 'django.contrib.auth.views.logout' %}">Sign out</a>
+        <a href="{% url 'auth_logout' %}">Sign out</a>
       </li>
     </ul>
   {% else %}
     <form class="navbar-form navbar-right" 
           method="post" 
-          action="{% url 'django.contrib.auth.views.login' %}">
+          action="{% url 'auth_login' %}">
       {% csrf_token %}
       {% bootstrap_field form.username show_label=False %}
       {% bootstrap_field form.password show_label=False %}
-      <input type="hidden" name="next" value="{% url 'demo.views.home' %}" />
+      <input type="hidden" name="next" value="{% url 'home' %}" />
       <button type="submit" class="btn btn-success">Sign in</button>
     </form>
   {% endif %}
@@ -34,7 +34,7 @@
 				  href="{% url 'registration_register' %}">Register</a> 
 			  &nbsp;
               <a class="btn btn-lg btn-success" 
-				  href="{% url 'django.contrib.auth.views.login' %}">Sign in</a>
+				  href="{% url 'auth_login' %}">Sign in</a>
             </p>
 		  {% endif %}
 		</div> <!-- /.container -->

@@ -11,7 +11,7 @@
       <p>Not yet registered?  
         <a href="{% url 'registration_register' %}">Register now for free!</a></p>
       <p>Trouble signing in?  
-        <a href="{% url 'django.contrib.auth.views.password_reset' %}">Reset password.</a></p>
+        <a href="{% url 'password_reset' %}">Reset password.</a></p>
     </div>
   </div>
 
@@ -23,7 +23,7 @@
   </div>
   {% endif %}
 
-  <form action="{% url 'django.contrib.auth.views.login' %}" 
+  <form action="{% url 'auth_login' %}" 
       method="post" 
       role="form" 
       class="form-horizontal">

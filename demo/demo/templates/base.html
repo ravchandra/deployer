@@ -21,22 +21,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'demo.views.home' %}">DEMO</a>
+          <a class="navbar-brand" href="{% url 'home' %}">DEMO</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class=""><a href="{% url 'demo.views.home' %}">Home</a></li>
+            <li class=""><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
           {% block nav_user %}
             {% if user.is_authenticated %}
               <ul class="nav navbar-nav navbar-right">
-                <li id="nav-username"><a href="{% url 'demo.views.profile' %}">
+                <li id="nav-username"><a href="{% url 'profile' %}">
                   <span class="glyphicon glyphicon-user"></span>  {{ user.get_username }} &nbsp; </a>
                 </li>
                 <li>
-                  <a href="{% url 'django.contrib.auth.views.logout' %}">Sign out</a>
+                  <a href="{% url 'auth_logout' %}">Sign out</a>
                 </li>
               </ul>
             {% endif %}
