@@ -29,6 +29,12 @@
 		<div class="container">
           <h1>DEMO</h1>
           <p class="lead">django-registration demo using Bootstrap 3</p>
+          <br>
+          <br>
+          {% if user.is_authenticated %}
+            <a href="#">Create</a>
+            <a href="#">Delete</a>
+          {% endif %}
 		  {% if not user.is_authenticated %}
             <p><a class="btn btn-lg btn-primary" 
 				  href="{% url 'registration_register' %}">Register</a> 
